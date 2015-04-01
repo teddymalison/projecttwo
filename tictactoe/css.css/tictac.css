@@ -1,0 +1,43 @@
+body{
+
+    text-align:center;
+    background-color: lavenderblush;
+    
+
+}
+
+.box{
+    
+    color: lavenderblush;
+    text-align:center;
+    font-family: arial;
+
+}
+
+
+
+h1{
+    color: hotpink;
+    font-family: 'Pacifico', cursive;
+    position:relative;
+    font-size: 50px;
+
+   
+
+}
+
+
+canvas{
+
+    position:relative;
+    text-align: center;
+    
+
+}
+
+.X {
+    font-family:sans-serif;
+    text-align: center;
+}
+
+

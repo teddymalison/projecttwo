@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Part Two Project Two</title>
+		<meta charset="UTF-8" />
+        <meta name="description" content="Sliding Letters with jQuery" />
+        <meta name="keywords" content="jquery, letters, lettering, menu, navigation, sliding, animation, menu"/>
+		<meta name="author" content="Codrops" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Bigshot+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+		<div class="bg"><img src="pinkblushbeach.jpg" alt="background" /></div>
+		<h1>Theodora Jane Malison</h1>
+		<ul id="sl_menu" class="sl_menu">
+			<li>
+				<a href="#">Things</a>
+			</li>
+			<li>
+				<a href="#">That</a>
+			</li>
+			<li>
+				<a href="#">Describe</a>
+			</li>
+			<li>
+				<a href="#">Me</a>
+			</li>
+		</ul>
+		<div class="sl_examples">
+			<a href="#" id="example1" data-hover="Thoughtful">Kind</a>
+			<a href="#" id="example2" data-hover="Technology Nerd">Freelance Writer</a>
+			<a href="#" id="example3" data-hover="Surfing">Ice Dancing</a>
+			<a href="#" id="example4" data-hover="BridalObsessed">Athletic</a>
+			<a href="#" id="example5" data-hover="Sigma Tau Delta">Alpha Omicron Pi</a>
+		</div>
+	
+		
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.lettering.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.hoverwords.js"></script>
+		
+		<script type="text/javascript">
+			$(window).load(function(){
+				$('#sl_menu').find('li:not(:last) > a')
+							 .hoverwords({ overlay:true })
+							 .end()
+							 .find('li:last > a')
+							 .hoverwords({ overlay:true , dir:'rightleft' });
+				
+				$('#example1').hoverwords({ delay:50 });
+				$('#example2').hoverwords();
+				$('#example3').hoverwords();
+				$('#example4').hoverwords({ overlay:true});
+				$('#example5').hoverwords({ delay:60 });
+				
+			});
+		</script>
+    </body>
+</html>

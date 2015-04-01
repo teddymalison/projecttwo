@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    <head>
+        
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" type="text/css" href="css.css/tictac.css"/>
+
+        <script type="text/javascript">
+
+        //My variables for the game
+
+        var painted;
+
+        var content;
+
+            var winningCombinations;
+
+        var turn = 0;
+
+        var theCanvas;
+
+        var c;
+
+        var cxt;
+
+        var squaresFilled = 0;
+
+        var w;
+
+        var y;
+
+        //More parts to function of the game wins losses etc
+
+        window.onload=function(){
+
+            painted = new Array();
+
+            content = new Array();
+
+            winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+ 
+
+            for(var l = 0; l <= 8; l++){
+
+            painted[l] = false;
+
+            content[l]='';
+
+            }
+
+        }
+
+        //The way the game works methods and such
+
+        function canvasClicked(canvasNumber){
+
+            theCanvas = "canvas"+canvasNumber;
+
+            c = document.getElementById(theCanvas);
+
+            cxt = c.getContext("2d");
+
+           
+if(painted[canvasNumber-1] ==false){
+
+                if(turn%2==0){
+
+                    cxt.beginPath();
+
+                    cxt.moveTo(10,10);
+
+                    cxt.lineTo(40,40);
+
+                    cxt.moveTo(40,10);
+
+                    cxt.lineTo(10,40);
+
+                    cxt.stroke();
+
+                    cxt.closePath();
+
+                    content[canvasNumber-1] = 'X';
+
+                }
+
+                else{
+
+                    cxt.beginPath();
+
+                    cxt.arc(25,25,20,0,Math.PI*2,true);
+
+                    cxt.stroke();
+
+                    cxt.closePath();
+
+                    content[canvasNumber-1] = 'O';
+
+                }
+
+                turn++;
+
+                painted[canvasNumber-1] = true;
+
+                squaresFilled++;
+
+                checkForWinners(content[canvasNumber-1]);
+
+ 
+
+                if(squaresFilled==9){
+
+                    alert("Game over!");
+
+                    location.reload(true);
+
+                }
+
+             
+
+            }
+
+            else{
+
+                alert("Can't click there darlin!");
+
+            }
+
+
+        }
+
+        function checkForWinners(symbol){
+
+             
+
+            for(var a = 0; a < winningCombinations.length; a++){
+
+            if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]== symbol&&content[winningCombinations[a][2]]==symbol){
+
+                alert(symbol+ " WON!");
+
+                playAgain();
+
+            }
+
+            }
+
+        }
+            
+        function playAgain(){
+
+            y=confirm("Please play again?");
+
+            if(y==true){
+
+                alert("Awesome! You rock dont change");
+
+                location.reload(true);
+
+            }
+
+            else{
+
+                alert("Sorry y'all you lose!");
+
+        }
+
+        }
+            
+            // I may or may not have made this a lot more complex than it needed to be. I struggled really hard with this part of the project and needed help figuring this entire section out. I tried to make it appealing and fun, but had a lot of confusion along the way.
+
+        </script>
+
+    </head>
+
+    <body>
+     <div id ="box">
+
+            <h1>Teddy's Tic Tac Toe</h1>
+
+            <canvas id = "canvas1"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(1)"></canvas>
+
+            <canvas id = "canvas2"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(2)"></canvas>
+
+            <canvas id = "canvas3"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(3)"></canvas><br/>
+
+            <canvas id = "canvas4"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(4)"></canvas>
+
+            <canvas id = "canvas5"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(5)"></canvas>
+
+            <canvas id = "canvas6"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(6)"></canvas><br/>
+
+            <canvas id = "canvas7"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(7)"></canvas>
+
+            <canvas id = "canvas8"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(8)"></canvas>
+
+            <canvas id = "canvas9"  width="100" height="100" style="border:5px solid white" onclick="canvasClicked(9)"></canvas>
+
+        </div>
+
+    </body>
+
+</html>
